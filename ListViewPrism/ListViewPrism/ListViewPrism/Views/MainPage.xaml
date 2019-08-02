@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
+             xmlns:local="clr-namespace:ListViewPrism"
+             xmlns:local1="clr-namespace:SortingFiltering"
+             x:Class="ListViewPrism.MainPage"
+             Title="MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CustomConverter x:Key="EventArgs" />
+            <local:MessageDataTemplateSelector x:Key="MessageDataTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <local:ContentPageBehavior/>
+    </ContentPage.Behaviors>
+
+    <Grid x:Name="MainGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <pulltoRefresh:SfPullToRefresh x:Name="pullToRefresh" ProgressBackgroundColor="#428BCA" RefreshContentHeight="50" 
+                                       RefreshContentWidth="50" TransitionMode="Push" IsRefreshing="False">
+            <pulltoRefresh:SfPullToRefresh.PullableContent>
+                <listView:SfListView x:Name="listView" ItemSize="70" ItemSpacing="0,0,5,0" SelectionMode="Single"
+                             LoadMoreOption="Manual"  
+                             LoadMoreCommand="{Binding LoadMoreItemsCommand}" DragStartMode="OnHold"
+                             LoadMoreCommandParameter="{Binding Source={x:Reference listView}}"
+                             AllowSwiping="True" AutoFitMode="Height" 
+                             ItemsSource="{Binding ContactsInfo}" IsStickyHeader="True" 
+                             ItemTemplate="{StaticResource MessageDataTemplateSelector}" >
+
+                    <listView:SfListView.Behaviors>
+                        <local:EventToCommandBehavior EventName="SwipeEnded" 
+                                        Command="{Binding SwipeEndedCommand}"
+                                        Converter="{StaticResource EventArgs}" />
+                    </listView:SfListView.Behaviors>
+
+                    <listView:SfListView.RightSwipeTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="Red">
+                                <Label Text="To Delete" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.SwipeRightCommand, Source={x:Reference listView}}"  CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </listView:SfListView.RightSwipeTemplate>
+
+                    <listView:SfListView.LeftSwipeTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="Red">
+                                <Label Text="Left Swipe Template" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </listView:SfListView.LeftSwipeTemplate>
+
+
+                </listView:SfListView>
+            </pulltoRefresh:SfPullToRefresh.PullableContent>
+        </pulltoRefresh:SfPullToRefresh>
+    </Grid>
+
+</ContentPage>
+
