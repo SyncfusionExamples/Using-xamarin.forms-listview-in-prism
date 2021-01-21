@@ -5,9 +5,7 @@
              xmlns:data="clr-namespace:Syncfusion.DataSource;assembly=Syncfusion.DataSource.Portable"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:pulltoRefresh="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
-             xmlns:syncfusion="clr-namespace:Syncfusion.SfPullToRefresh.XForms;assembly=Syncfusion.SfPullToRefresh.XForms"
              xmlns:local="clr-namespace:ListViewPrism"
-             xmlns:local1="clr-namespace:SortingFiltering"
              x:Class="ListViewPrism.MainPage"
              Title="MainPage">
     <ContentPage.Resources>
