@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Delete.png" />
     <None Remove="Images\Image0.png" />
     <None Remove="Images\Image1.png" />
     <None Remove="Images\Image10.png" />
@@ -40,12 +39,9 @@
     <None Remove="Images\Image7.png" />
     <None Remove="Images\Image8.png" />
     <None Remove="Images\Image9.png" />
-    <None Remove="Images\NotSelected.png" />
-    <None Remove="Images\Selected.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\Delete.png" />
     <EmbeddedResource Include="Images\Image0.png" />
     <EmbeddedResource Include="Images\Image1.png" />
     <EmbeddedResource Include="Images\Image10.png" />
@@ -75,17 +71,15 @@
     <EmbeddedResource Include="Images\Image7.png" />
     <EmbeddedResource Include="Images\Image8.png" />
     <EmbeddedResource Include="Images\Image9.png" />
-    <EmbeddedResource Include="Images\NotSelected.png" />
-    <EmbeddedResource Include="Images\Selected.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Core" Version="7.1.0.431" />
-    <PackageReference Include="Prism.Forms" Version="7.1.0.431" />
-    <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.1.0.44" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="17.1.0.47" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
+    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
+    <PackageReference Include="Prism.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.4.0.35" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.4.0.35" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
   </ItemGroup>
 
   <ItemGroup>

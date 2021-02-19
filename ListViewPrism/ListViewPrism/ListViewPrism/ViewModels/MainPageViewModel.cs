@@ -126,7 +126,7 @@ namespace ListViewPrism
         }
         private void OnSwipeEnded(object obj)
         {
-            var swipeArgs = obj as SwipeEndedEventArgs;
+            var swipeArgs = obj as Syncfusion.ListView.XForms.SwipeEndedEventArgs;
             var contact=swipeArgs.ItemData as Contacts;
             App.Current.MainPage.DisplayAlert("Message", "Swiped item :" + contact.ContactName, "Ok");
         }
